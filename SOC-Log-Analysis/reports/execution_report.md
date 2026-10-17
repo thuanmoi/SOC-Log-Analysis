@@ -20,6 +20,12 @@ python src/detect_login.py logs/sample_auth.log
 PYTHONPATH=src python -m unittest discover -s tests -v
 ```
 
+## Validation result
+
+The GitHub Actions workflow **SOC detector tests** completed with **Success** on the `main` branch for commit `29c17e8`. The `unit-tests` job passed. Its configured steps run the detector unit tests and then run the script against the sample log. The current result can be checked in the repository's Actions tab.
+
+This verifies that the configured automated checks passed in GitHub Actions; it does not by itself establish production readiness or prove that the detector has been used against real company logs.
+
 ## Expected sample behavior
 
 The included sample contains three failed logins for `alice` from `192.0.2.10`, followed by a successful login within five minutes. The expected alert shape is:
@@ -28,8 +34,6 @@ The included sample contains three failed logins for `alice` from `192.0.2.10`, 
 Alerts found: 1
 SUSPICIOUS_LOGIN user=alice src_ip=192.0.2.10 failed_attempts=3 success_time=2026-10-01T09:30:10+00:00 line=4
 ```
-
-This is an expected result derived from the sample data and detector logic, not a claim that the latest version has been executed successfully. The expanded test suite is configured to run in GitHub Actions; check the Actions tab for the actual result.
 
 ## Triage interpretation
 
@@ -49,4 +53,4 @@ The data is synthetic and the parser supports only the documented format. This i
 
 ## Evidence provenance
 
-Any stored output file must be labelled with the exact code version and command that produced it. Historical output from an earlier version is not proof that the current expanded test suite passes. The GitHub Actions run is the source of truth for the latest automated test result.
+The GitHub Actions run is the evidence for the automated checks described above. The sample output shown here is the expected behavior derived from the sample data and detector logic, not a separately captured terminal transcript. Keep future saved outputs labelled with the code version and command that produced them.
