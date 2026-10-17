@@ -48,6 +48,10 @@ Each project documents its objective, environment, tools, workflow, findings, an
 
 [View project](Nmap-Network-Scanning/)
 
+## Automated test status
+
+The [GitHub Actions run for commit 0ae13fd](https://github.com/thuanmoi/SOC-Log-Analysis/actions/runs/39006066961) completed successfully. Both the SOC unit-test job and the network-flow job passed, including their sample-input execution steps. This confirms those automated checks for that run; check the Actions tab for the latest status after future changes.
+
 ## Tools and environment
 
 The current implemented code uses Python 3 and sample text/CSV files; project documentation and version control use Markdown and GitHub. Ubuntu/Linux, Wireshark, Burp Suite, and Nmap are identified as tools for planned lab exercises where noted above; they should only be described as hands-on experience after the corresponding exercise has actually been completed and verified.
