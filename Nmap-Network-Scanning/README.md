@@ -18,12 +18,13 @@ Use [scope-template.md](scope-template.md) to record the target, permission, all
 
 ## Files
 - `scope-template.md` — target and authorization details.
-- `evidence/` — sanitized output from a completed lab scan.
-- `reports/findings-template.md` — report structure for observed results.
-- `reports/illustrative-practice-walkthrough.md` — a clearly labeled synthetic example explaining commands and interpretation; it is not real scan evidence.
-- `reports/nmap-case-study.md` — a structured scenario-based service review with simulated findings, risk reasoning, recommendations and a path to verified evidence.
+- `evidence/sample-nmap-output.txt` — **fabricated training fixture**, not actual Nmap output.
+- `reports/findings-template.md` — blank report structure for actual observations.
+- `reports/sample-findings-report.md` — completed **simulated** findings report to demonstrate analysis and documentation.
+- `reports/illustrative-practice-walkthrough.md` — synthetic example explaining commands and interpretation.
+- `reports/nmap-case-study.md` — scenario-based service review with simulated findings, risk reasoning, and recommendations.
 
 ## Current status
-This repository has the workflow, report template, and an illustrative training walkthrough. **There is still no verified real scan output in this repository.** The walkthrough's sample output is synthetic and must not be represented as a scan that was actually run.
+The portfolio now includes a complete sample report and sample output fixture for demonstration. **No verified real Nmap scan has been performed or added yet.** All sample findings are explicitly labeled simulated and must not be represented as evidence from an actual scan. Replace them with output from an authorized lab scan when available.
 
 Tool: [Nmap](https://nmap.org/)
