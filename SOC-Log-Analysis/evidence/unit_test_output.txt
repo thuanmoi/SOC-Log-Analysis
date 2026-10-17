@@ -1,0 +1,10 @@
+test_failures_from_different_users_are_not_combined (test_detector.DetectionTests.test_failures_from_different_users_are_not_combined) ... ok
+test_malformed_line_is_ignored (test_detector.DetectionTests.test_malformed_line_is_ignored) ... ok
+test_old_failures_expire_from_window (test_detector.DetectionTests.test_old_failures_expire_from_window) ... ok
+test_three_failures_then_success_within_window_alerts (test_detector.DetectionTests.test_three_failures_then_success_within_window_alerts) ... ok
+test_two_failures_do_not_alert (test_detector.DetectionTests.test_two_failures_do_not_alert) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK
