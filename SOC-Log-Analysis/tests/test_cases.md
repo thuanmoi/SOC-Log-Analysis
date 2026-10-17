@@ -6,17 +6,21 @@ These cases check the main detection path, negative cases, and input-handling ed
 
 | ID | Scenario | Expected behavior | Verification status |
 |---|---|---|---|
-| TC-01 | Three failures followed by success within five minutes for the same user/IP | Raise one alert | Awaiting CI run |
-| TC-02 | Only two failures followed by success | No alert | Awaiting CI run |
-| TC-03 | Failures followed by success outside the five-minute window | No alert | Awaiting CI run |
-| TC-04 | Failures belong to different users | Do not combine counts | Awaiting CI run |
-| TC-05 | Failures belong to different source IPs | Do not combine counts | Awaiting CI run |
-| TC-06 | Malformed line or invalid timestamp | Ignore invalid input | Awaiting CI run |
-| TC-07 | Timestamp has no timezone | Ignore the event | Awaiting CI run |
-| TC-08 | Unknown event type | Ignore the event | Awaiting CI run |
-| TC-09 | Input lines are out of chronological order | Process chronologically and preserve source line number | Awaiting CI run |
-| TC-10 | Custom threshold | Apply the configured threshold | Awaiting CI run |
-| TC-11 | Zero/invalid threshold or window | Raise a clear `ValueError` | Awaiting CI run |
+| TC-01 | Three failures followed by success within five minutes for the same user/IP | Raise one alert | Passed in GitHub Actions |
+| TC-02 | Only two failures followed by success | No alert | Passed in GitHub Actions |
+| TC-03 | Failures followed by success outside the five-minute window | No alert | Passed in GitHub Actions |
+| TC-04 | Failures belong to different users | Do not combine counts | Passed in GitHub Actions |
+| TC-05 | Failures belong to different source IPs | Do not combine counts | Passed in GitHub Actions |
+| TC-06 | Malformed line or invalid timestamp | Ignore invalid input | Passed in GitHub Actions |
+| TC-07 | Timestamp has no timezone | Ignore the event | Passed in GitHub Actions |
+| TC-08 | Unknown event type | Ignore the event | Passed in GitHub Actions |
+| TC-09 | Input lines are out of chronological order | Process chronologically and preserve source line number | Passed in GitHub Actions |
+| TC-10 | Custom threshold | Apply the configured threshold | Passed in GitHub Actions |
+| TC-11 | Zero/invalid threshold or window | Raise a clear `ValueError` | Passed in GitHub Actions |
+
+## Verification evidence
+
+The GitHub Actions workflow **SOC detector tests** completed successfully on the `main` branch (run for commit `29c17e8`). The `unit-tests` job passed. The workflow runs the unit-test command and then executes the sample log script. See the repository's Actions tab for the run details.
 
 ## Reproduce locally
 
@@ -26,8 +30,6 @@ From the `SOC-Log-Analysis` directory:
 python src/detect_login.py logs/sample_auth.log
 PYTHONPATH=src python -m unittest discover -s tests -v
 ```
-
-The GitHub Actions workflow runs the same test command on pushes and pull requests. Until that workflow completes, this document intentionally does not claim the expanded suite has passed.
 
 ## Scope and limitations
 
