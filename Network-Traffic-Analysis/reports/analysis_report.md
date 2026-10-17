@@ -1,11 +1,11 @@
 # Network Flow Review
 
 ## Scope
-This review uses synthetic CSV flow summaries rather than traffic captured from a live network. The script was executed in a Python runtime for this review; no live network was accessed.
+This review uses synthetic CSV flow summaries rather than traffic captured from a live network.
 
-## Observed output
+## Example output
 
-The script flagged three rows for review:
+The current sample data produces three rows for review:
 
 ```text
 Rows flagged for review: 3
@@ -15,9 +15,9 @@ REVIEW row=7 src_ip=192.0.2.31 dst_ip=203.0.113.53 reasons=many_connections byte
 ```
 
 ## Interpretation
-- Rows 5 and 6 exceeded the 5,000,000-byte review threshold.
-- Row 7 reached the threshold of 10 connections.
-- These patterns are leads for review, not findings of malicious activity. An analyst would need context such as the asset's role, expected traffic, destination, timing, and packet-level details before drawing conclusions.
+- Rows 5 and 6 exceed the 5,000,000-byte review threshold.
+- Row 7 reaches the threshold of 10 connections.
+- These patterns are leads for review, not findings of malicious activity. An analyst needs context such as the asset's role, expected traffic, destination, timing, and packet-level details before drawing conclusions.
 
 ## Further investigation
 In an authorized lab, compare flow-level observations with a PCAP in Wireshark. Record the filters used and note where packet evidence supports or contradicts the initial observations.
