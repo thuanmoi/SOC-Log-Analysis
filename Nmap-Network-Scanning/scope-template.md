@@ -1,15 +1,15 @@
-# Lab Scope and Authorization
+# Lab Scope
 
-Complete this before running any scan.
+Complete this before scanning.
 
-- **Target:** (IP/hostname of your own lab target)
-- **Owner / training environment:**
-- **Permission:** (how authorization was granted)
-- **Allowed scan window:**
-- **Allowed techniques:**
+- **Target:** IP address or hostname of the lab target
+- **Environment owner:**
+- **Permission / authorization:**
+- **Allowed time window:**
+- **Allowed scan types:**
 - **Excluded targets:**
 - **Rate or impact limits:**
-- **Emergency stop contact/process:**
-- **Evidence storage location:**
+- **Stop procedure:**
+- **Evidence location:**
 
-Do not start if ownership, permission, or scope is unclear.
+Do not start the scan if the target, permission, or scope is unclear.
