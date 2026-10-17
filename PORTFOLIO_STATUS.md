@@ -1,37 +1,44 @@
-# Portfolio Status and Evidence Checklist
+# Portfolio Status
 
-This file distinguishes completed documentation from hands-on evidence that still needs to be collected.
+I am using this checklist to keep track of what is in GitHub now and what still needs hands-on evidence. A file or template being present does not mean the test has already been run.
 
-## Project 1 — SOC Log Analysis
-- [x] Synthetic authentication log
+## 1. SOC Log Analysis
+
+- [x] Sample authentication log (synthetic data)
 - [x] Python detection script
-- [x] Test scenarios documented
-- [x] Example incident triage report
-- [ ] Record actual test execution results
-- [ ] Add sanitized screenshot of the script output, if available
+- [x] Test scenarios and example incident report
+- [ ] Run the test scenarios and record the actual output
+- [ ] Add a screenshot or text capture of the result
 
-## Project 2 — Network Traffic Analysis
-- [x] Synthetic network-flow CSV
-- [x] Python review script
-- [x] Analysis report and test scenarios
-- [ ] Capture and analyze a PCAP in an authorized lab with Wireshark
-- [ ] Add sanitized screenshots and filter notes
-- [ ] Record actual test execution results
+## 2. Network Traffic Analysis
 
-## Project 3 — Web Application Security
-- [x] Fictional IDOR/BOLA case study
+- [x] Sample network-flow CSV (synthetic data)
+- [x] Python analysis script
+- [x] Analysis notes and test scenarios
+- [ ] Capture or obtain a safe training PCAP in an authorized lab
+- [ ] Inspect it with Wireshark and record useful filters
+- [ ] Add sanitized evidence and actual observations
+
+## 3. Web Application Security
+
+- [x] Fictional IDOR/BOLA scenario
 - [x] Access-control test matrix
-- [x] Remediation recommendations
-- [ ] Validate cases against an intentionally vulnerable training app in an authorized lab
-- [ ] Add sanitized request/response evidence from Burp Suite or OWASP ZAP
-- [ ] Record actual results and severity rationale
+- [x] Remediation notes
+- [ ] Try the cases against an intentionally vulnerable training app
+- [ ] Save sanitized request/response evidence using Burp Suite or OWASP ZAP
+- [ ] Record what happened, including any cases that did not behave as expected
 
-## Additional project — Network Scanning
-- [ ] If useful for target roles, create a separate Nmap lab project documenting scope, commands, observed services, interpretation, and remediation.
-- [ ] Only scan systems owned by the learner or explicitly authorized for testing.
+## 4. Nmap Network Scanning
 
-## Honesty and safety
-- Existing data and cases are synthetic or fictional unless a file explicitly says otherwise.
-- Do not describe a planned test as completed.
-- Do not upload company logs, credentials, cookies, tokens, customer data, or private IP/network details.
-- Do not claim practical experience with Nmap, Wireshark, Burp Suite, OWASP ZAP, or Splunk until you have used them and retained safe evidence.
+- [x] Project README and lab-scope checklist
+- [x] Findings-report template
+- [ ] Run a scan against an authorized lab target
+- [ ] Add the command, sanitized output, and interpretation
+- [ ] Record any retest after a lab configuration change
+
+## Before calling a project complete
+
+- Keep sample data clearly labelled as synthetic.
+- Don't write that a tool was used unless I actually used it.
+- Don't call a test a pass until I have run it and checked the output.
+- Never commit company logs, credentials, cookies, tokens, customer information, or private network details.
