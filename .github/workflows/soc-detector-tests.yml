@@ -1,15 +1,17 @@
-name: SOC detector tests
+name: Security project tests
 
 on:
   push:
     branches: [main]
     paths:
       - "SOC-Log-Analysis/**"
+      - "Network-Traffic-Analysis/**"
       - ".github/workflows/soc-detector-tests.yml"
   pull_request:
     branches: [main]
     paths:
       - "SOC-Log-Analysis/**"
+      - "Network-Traffic-Analysis/**"
       - ".github/workflows/soc-detector-tests.yml"
   workflow_dispatch:
 
@@ -33,3 +35,20 @@ jobs:
         run: PYTHONPATH=src python -m unittest discover -s tests -v
       - name: Run sample log
         run: python src/detect_login.py logs/sample_auth.log
+
+  network-flow-tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Network-Traffic-Analysis
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run network-flow unit tests
+        run: python -m unittest discover -s tests -v
+      - name: Run sample flow analysis
+        run: python src/analyze_flows.py data/sample_flows.csv
