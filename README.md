@@ -1,22 +1,40 @@
-# Fresher Security Engineer Portfolio
+# Security Engineer Portfolio
 
-This repository collects learning projects relevant to a Fresher Security Engineer / SOC-oriented role.
+Hi, I'm building this repository as I prepare for a Fresher Security Engineer role. My current focus is on the basics: reading logs, understanding network traffic, and documenting web access-control issues.
+
+The projects below are learning exercises. Some use generated sample data and one is a fictional case study, so I have labelled those clearly instead of presenting them as work on real systems.
 
 ## Projects
 
-1. [SOC Log Analysis](SOC-Log-Analysis/) — Python-based detection logic using synthetic authentication logs, with test scenarios and an incident report.
-2. [Network Traffic Analysis](Network-Traffic-Analysis/) — analysis of synthetic network-flow CSV data using Python. This is not a real PCAP or Wireshark capture.
-3. [Web Application Security](Web-Application-Security/) — fictional IDOR/BOLA access-control case study and test matrix; no live target was tested.
-4. [Nmap Network Scanning](Nmap-Network-Scanning/) — authorized-lab workflow, scope template, and findings-report template. A real scan has not yet been recorded in this repository.
+### 1. SOC Log Analysis
+[Open project](SOC-Log-Analysis/)
 
-## Current tools and evidence
+A small Python script that looks through sample authentication logs for repeated failed logins followed by a successful login. The folder includes the sample log, detection code, test scenarios, and an example incident report.
 
-The current portfolio contains Python, synthetic text/CSV data, Markdown reports, and GitHub documentation. Nmap, Wireshark, Burp Suite/OWASP ZAP, and SIEM platforms are tools to practice in authorized labs; this repository does not claim hands-on evidence for those tools unless a project explicitly includes it.
+### 2. Network Traffic Analysis
+[Open project](Network-Traffic-Analysis/)
 
-## Responsible practice
+A Python exercise using a made-up CSV of network-flow records. It flags a couple of simple patterns for review. This is not a packet capture, and I have not described it as a Wireshark investigation.
 
-Only test systems you own or have explicit permission to assess. Do not upload company logs, credentials, tokens, cookies, personal data, or confidential network details.
+### 3. Web Application Security
+[Open project](Web-Application-Security/)
 
-## Portfolio status
+A written IDOR/BOLA case study covering what to check, what evidence would matter, and how access control should be fixed. The examples are fictional; no live website was tested.
 
-See [PORTFOLIO_STATUS.md](PORTFOLIO_STATUS.md) for completed documentation and evidence still to collect.
+### 4. Nmap Network Scanning
+[Open project](Nmap-Network-Scanning/)
+
+I have prepared a scope checklist and report template for an authorized lab scan. The actual scan and its findings still need to be added after I have a suitable lab environment.
+
+## What I have used so far
+
+For the current files, I have worked with Python, text and CSV sample data, Markdown, and GitHub. Nmap, Wireshark, Burp Suite/OWASP ZAP, and SIEM tools are next on my practice list; I won't list them as hands-on experience until I have actually used them and can show the results.
+
+## Notes
+
+- Sample logs and flow data are synthetic.
+- The web security scenario is fictional.
+- No company or third-party systems were tested for these exercises.
+- I will add screenshots and command output as I complete authorized lab work, with sensitive information removed.
+
+See [Portfolio Status](PORTFOLIO_STATUS.md) for what is documented and what remains to be done.
