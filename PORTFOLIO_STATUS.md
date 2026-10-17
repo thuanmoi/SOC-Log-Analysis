@@ -1,44 +1,33 @@
-# Portfolio Status
+# Portfolio Projects
 
-I am using this checklist to keep track of what is in GitHub now and what still needs hands-on evidence. A file or template being present does not mean the test has already been run.
+This repository contains four security learning projects. Each project has its own README, source files or case notes, and a description of its current scope.
 
-## 1. SOC Log Analysis
+## Projects
 
-- [x] Sample authentication log (synthetic data)
-- [x] Python detection script
-- [x] Test scenarios and example incident report
-- [ ] Run the test scenarios and record the actual output
-- [ ] Add a screenshot or text capture of the result
+### SOC Log Analysis
+Python script for reviewing authentication log entries and flagging repeated failed logins followed by a successful login. Includes sample logs, test scenarios, and an incident report.
 
-## 2. Network Traffic Analysis
+[View SOC Log Analysis](SOC-Log-Analysis/)
 
-- [x] Sample network-flow CSV (synthetic data)
-- [x] Python analysis script
-- [x] Analysis notes and test scenarios
-- [ ] Capture or obtain a safe training PCAP in an authorized lab
-- [ ] Inspect it with Wireshark and record useful filters
-- [ ] Add sanitized evidence and actual observations
+### Network Traffic Analysis
+Python analysis of sample network-flow CSV data, with notes on patterns that may warrant further investigation.
 
-## 3. Web Application Security
+[View Network Traffic Analysis](Network-Traffic-Analysis/)
 
-- [x] Fictional IDOR/BOLA scenario
-- [x] Access-control test matrix
-- [x] Remediation notes
-- [ ] Try the cases against an intentionally vulnerable training app
-- [ ] Save sanitized request/response evidence using Burp Suite or OWASP ZAP
-- [ ] Record what happened, including any cases that did not behave as expected
+### Web Application Security
+IDOR/BOLA access-control case study with test scenarios and remediation notes.
 
-## 4. Nmap Network Scanning
+[View Web Application Security](Web-Application-Security/)
 
-- [x] Project README and lab-scope checklist
-- [x] Findings-report template
-- [ ] Run a scan against an authorized lab target
-- [ ] Add the command, sanitized output, and interpretation
-- [ ] Record any retest after a lab configuration change
+### Nmap Network Scanning
+Lab scope checklist and findings-report template for an authorized scan.
 
-## Before calling a project complete
+[View Nmap Network Scanning](Nmap-Network-Scanning/)
 
-- Keep sample data clearly labelled as synthetic.
-- Don't write that a tool was used unless I actually used it.
-- Don't call a test a pass until I have run it and checked the output.
-- Never commit company logs, credentials, cookies, tokens, customer information, or private network details.
+## Scope
+
+The SOC and network projects use sample data; the web project is a case study. The Nmap folder documents a planned lab workflow. I will add real lab outputs as I complete those exercises. The repository does not claim that a simulated example is evidence from a production system.
+
+## Responsible practice
+
+Only test systems you own or have explicit permission to assess. Do not publish company logs, credentials, session tokens, personal data, or confidential network details.
