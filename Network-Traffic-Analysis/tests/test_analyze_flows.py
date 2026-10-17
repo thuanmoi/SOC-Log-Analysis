@@ -67,6 +67,14 @@ class AnalyzeFlowsTests(unittest.TestCase):
         ])
         self.assertEqual(analyze(path), [])
 
+    def test_skips_negative_byte_or_connection_counts(self):
+        path = self.write_csv([
+            self.row(bytes_value="-1", connections="10"),
+            self.row(bytes_value="5000000", connections="-1"),
+            self.row(bytes_value="-1", connections="-1"),
+        ])
+        self.assertEqual(analyze(path), [])
+
     def test_preserves_source_row_number_and_addresses(self):
         path = self.write_csv([
             self.row(bytes_value="1000"),
