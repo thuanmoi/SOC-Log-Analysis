@@ -1,12 +1,7 @@
-# Evidence Folder — Web Application Security
+# Web Security Evidence
 
-The current case study is fictional. No real application test evidence is included yet.
+Use this folder for evidence collected while testing an intentionally vulnerable training app with permission.
 
-For future authorized lab testing, add:
-- Sanitized HTTP request/response examples.
-- A screenshot of the relevant Burp Suite or OWASP ZAP finding.
-- The test account and object ownership setup, using dummy data only.
-- Expected versus actual behavior.
-- Impact, remediation, and retest result.
+Useful evidence includes sanitized HTTP request/response excerpts, the test account setup using dummy data, expected versus actual behavior, impact, remediation, and retest results.
 
-Do not include session cookies, authorization headers, access tokens, passwords, real personal data, or evidence from systems you do not have permission to test.
+Remove session cookies, authorization headers, access tokens, passwords, and personal data before sharing anything. Do not test systems without permission.
