@@ -1,26 +1,23 @@
-# SOC Log Analysis & Incident Triage
+# SOC Log Analysis
 
-A beginner cybersecurity portfolio project demonstrating basic analysis of **simulated authentication logs** with Python.
+## Overview
+This project uses Python to review sample authentication logs and flag a pattern that may need investigation: repeated failed logins followed by a successful login from the same user and source IP within five minutes.
 
-## Objectives
-- Parse authentication events from a text log.
-- Identify repeated failed logins followed by a successful login from the same source within a configurable time window.
-- Produce a concise alert summary for analyst review.
-
-## Project structure
-- `logs/sample_auth.log` — synthetic sample events; IP addresses use documentation ranges.
-- `src/detect_login.py` — basic detection script.
-- `tests/test_cases.md` — test scenarios and limitations.
-- `reports/incident_report.md` — example triage report.
-
-## Requirements
-- Python 3.9+ (standard library only).
+## Files
+- `logs/sample_auth.log` — sample authentication events using documentation-range IP addresses.
+- `src/detect_login.py` — log parsing and detection logic.
+- `tests/test_cases.md` — test scenarios and known limitations.
+- `reports/incident_report.md` — example triage report based on the sample events.
 
 ## Run
-From this folder:
+Requires Python 3.9+ and uses the standard library. From this folder, run:
+
 ```bash
 python src/detect_login.py logs/sample_auth.log
 ```
 
-## Scope and limitations
-This project uses synthetic data and is for learning only. Alerts are indicators for investigation, not proof of compromise. The detector is intentionally simple and does not replace a SIEM, correlation engine, or analyst review. No production systems were accessed.
+## Detection logic
+The script groups events by user and source IP, counts failed attempts within the configured time window, and checks whether a successful login follows. A matching pattern is an alert for review, not proof that an account was compromised.
+
+## Limitations
+The sample data is synthetic. The script expects the documented log format and time-ordered events, and it does not replace a SIEM or a full incident investigation.
