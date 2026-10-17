@@ -1,19 +1,21 @@
-# Web Application Security: Access-Control Case Study
+# Web Application Security — IDOR/BOLA
 
-## Objective
-Document how to review object-level authorization, commonly discussed as IDOR/BOLA, in a deliberately authorized lab.
+## Overview
+This project examines object-level authorization: whether an application checks that the signed-in user is allowed to access the specific record requested.
+
+## Scenarios covered
+- A user accesses their own record.
+- A user requests a record owned by another account.
+- A request is made without a valid session.
+- Read and update permissions are considered separately.
+
+## Files
+- `cases/access_control_cases.md` — example scenarios.
+- `tests/test_matrix.md` — expected access-control behavior.
+- `reports/finding_idor_bola.md` — case-study write-up and remediation ideas.
+
+## Key point
+Changing an object ID does not, by itself, prove a vulnerability. The important question is whether the server checks authorization for the user, object, and requested operation on every request.
 
 ## Scope
-This repository contains a fictional case study and test matrix. It does not document testing against a live website or a real organization's application.
-
-## Concepts covered
-- Authentication versus authorization
-- Object-level access control
-- Expected behavior when one user requests another user's object
-- Evidence, impact, remediation, and retesting
-
-## Tools
-The current artifact is documentation-based. Burp Suite or OWASP ZAP can be used later against an intentionally vulnerable training app in an authorized lab. Do not test systems without explicit permission.
-
-## Responsible testing
-Use only lab accounts and test data. Do not access, modify, or download another person's real data.
+The current material is a case study, not a report of a live application test. Any hands-on validation should use an intentionally vulnerable training app, dummy accounts, and explicit authorization.
