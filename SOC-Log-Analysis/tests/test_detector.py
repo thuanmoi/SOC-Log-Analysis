@@ -1,4 +1,6 @@
 import unittest
+from datetime import timedelta
+
 from detect_login import detect, parse_line
 
 
@@ -59,7 +61,27 @@ class DetectionTests(unittest.TestCase):
         self.assertEqual(detect(["not-a-valid-log-line"]), [])
 
     def test_invalid_timestamp_is_ignored(self):
-        self.assertIsNone(parse_line("not-a-date user=alice src_ip=192.0.2.10 event=login_failed"))
+        line = "not-a-date user=alice src_ip=192.0.2.10 event=login_failed"
+        self.assertIsNone(parse_line(line))
+
+    def test_timezone_naive_timestamp_is_ignored(self):
+        line = "2026-10-01T09:30:01 user=alice src_ip=192.0.2.10 event=login_failed"
+        self.assertIsNone(parse_line(line))
+
+    def test_unknown_event_type_is_ignored(self):
+        line = event("2026-10-01T09:30:01Z", kind="password_reset")
+        self.assertIsNone(parse_line(line))
+
+    def test_out_of_order_input_is_processed_chronologically(self):
+        lines = [
+            event("2026-10-01T09:30:10Z", kind="login_success"),
+            event("2026-10-01T09:30:07Z"),
+            event("2026-10-01T09:30:04Z"),
+            event("2026-10-01T09:30:01Z"),
+        ]
+        alerts = detect(lines)
+        self.assertEqual(len(alerts), 1)
+        self.assertEqual(alerts[0]["line"], 1)
 
     def test_custom_threshold_can_be_used(self):
         lines = [
@@ -68,6 +90,12 @@ class DetectionTests(unittest.TestCase):
             event("2026-10-01T09:30:03Z", kind="login_success"),
         ]
         self.assertEqual(len(detect(lines, threshold=2)), 1)
+
+    def test_invalid_threshold_and_window_raise_value_error(self):
+        with self.assertRaises(ValueError):
+            detect([], threshold=0)
+        with self.assertRaises(ValueError):
+            detect([], window_minutes=0)
 
 
 if __name__ == "__main__":
