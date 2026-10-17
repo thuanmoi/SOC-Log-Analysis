@@ -22,7 +22,7 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 
 ## Validation result
 
-A previous GitHub Actions run completed with **Success** on the `main` branch for commit `29c17e8`. Since then, input validation and boundary-case tests have been expanded. Re-run or inspect GitHub Actions for the latest commit before treating those newest changes as CI-verified. The configured job runs the detector unit tests and then the script against the sample log.
+The user confirmed that the latest GitHub Actions run for the recent detector and test changes completed successfully, including the unit-test and sample-log steps. The configured job runs the detector unit tests and then the script against the sample log. See the repository's Actions tab for the run details.
 
 This verifies that the configured automated checks passed in GitHub Actions; it does not by itself establish production readiness or prove that the detector has been used against real company logs.
 
