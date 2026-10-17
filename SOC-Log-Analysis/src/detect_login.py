@@ -53,6 +53,10 @@ def detect(lines, threshold=3, window_minutes=5):
         valid_window = False
     if not valid_window:
         raise ValueError("window_minutes must be a finite positive number")
+    try:
+        window = timedelta(minutes=window_minutes)
+    except OverflowError:
+        raise ValueError("window_minutes is too large") from None
 
     parsed_events = []
     for line_number, line in enumerate(lines, start=1):
@@ -63,7 +67,6 @@ def detect(lines, threshold=3, window_minutes=5):
     parsed_events.sort(key=lambda row: (row[0], row[1]))
     failures = defaultdict(deque)
     alerts = []
-    window = timedelta(minutes=window_minutes)
 
     for timestamp, line_number, event in parsed_events:
         key = (event["user"], event["ip"])
