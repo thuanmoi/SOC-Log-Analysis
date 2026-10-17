@@ -16,11 +16,12 @@ These cases check the main detection path, negative cases, and input-handling ed
 | TC-08 | Unknown event type | Ignore the event | Passed in GitHub Actions |
 | TC-09 | Input lines are out of chronological order | Process chronologically and preserve source line number | Passed in GitHub Actions |
 | TC-10 | Custom threshold | Apply the configured threshold | Passed in GitHub Actions |
-| TC-11 | Zero/negative/non-finite threshold or window | Raise a clear `ValueError` | Awaiting CI for latest commit |
+| TC-11 | Zero/negative/non-finite or excessively large window | Raise a clear `ValueError` | Awaiting CI for latest commit |
+| TC-12 | A failure occurs exactly five minutes before success | Count the boundary event because the window is inclusive | Awaiting CI for latest commit |
 
 ## Verification evidence
 
-The GitHub Actions workflow **SOC detector tests** completed successfully for commit `29c17e8`. After that run, input validation and its tests were updated in commits `0dee7b9` and `7b702fa`. The new changes must pass a subsequent workflow run before TC-11 can be marked as verified. See the repository's Actions tab for the latest result.
+A previous GitHub Actions run passed for commit `29c17e8`. Subsequent changes now handle excessively large finite time windows and add tests for that case and the inclusive five-minute boundary. TC-11 and TC-12 remain awaiting a workflow run for these latest changes. See the repository's Actions tab for the current result.
 
 ## Reproduce locally
 
