@@ -18,6 +18,18 @@ These are simple review rules, not proof of malicious activity. High-volume tran
 - `src/analyze_flows.py` — analysis script.
 - `reports/analysis_report.md` — notes on the sample data.
 - `tests/test_cases.md` — expected behavior for test scenarios.
+- `tests/test_analyze_flows.py` — automated tests for threshold and input-handling behavior.
+
+## Run locally
+
+From this folder, run:
+
+```bash
+python src/analyze_flows.py data/sample_flows.csv
+python -m unittest discover -s tests -v
+```
+
+GitHub Actions runs the unit tests and sample analysis for this project when relevant files change. Check the repository's Actions tab for the latest run result.
 
 ## Current scope
 This version analyzes CSV data. It does not include a real packet capture or Wireshark analysis.
