@@ -1,0 +1,35 @@
+name: SOC detector tests
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "SOC-Log-Analysis/**"
+      - ".github/workflows/soc-detector-tests.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "SOC-Log-Analysis/**"
+      - ".github/workflows/soc-detector-tests.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: SOC-Log-Analysis
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run detector unit tests
+        run: PYTHONPATH=src python -m unittest discover -s tests -v
+      - name: Run sample log
+        run: python src/detect_login.py logs/sample_auth.log
