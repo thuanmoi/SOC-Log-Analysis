@@ -16,7 +16,10 @@ Open the `Network-Traffic-Analysis` folder in Visual Studio Code, open its integ
 
 ```bash
 python src/analyze_flows.py data/sample_flows.csv
+python -m unittest discover -s tests -v
 ```
+
+The automated tests cover both thresholds, the case where both rules match, rows below the thresholds, invalid numeric fields, and preservation of row numbers and addresses.
 
 ## Example output
 
