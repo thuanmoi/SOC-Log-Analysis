@@ -1,26 +1,26 @@
-# Project Descriptions for CV
+# Project Summaries
 
-These are concise descriptions of the learning projects in this repository. Keep the wording aligned with the work actually completed; do not describe templates or planned lab work as completed testing.
+Short descriptions of the projects in this repository. The wording reflects the current files and scope.
 
-## SOC Log Analysis & Incident Triage
-Built a beginner Python script to parse synthetic authentication logs and flag repeated failed logins followed by a successful login from the same user and source IP within a five-minute window. Added sample data, test scenarios, and an example incident-triage report.
+## SOC Log Analysis
+Created a Python script to parse sample authentication logs and flag repeated failed logins followed by a successful login from the same user and source IP within five minutes. Added sample log data, test scenarios, and an incident-triage report.
 
-Project: [SOC Log Analysis](SOC-Log-Analysis/)
+[Project repository](SOC-Log-Analysis/)
 
 ## Network Traffic Analysis
-Wrote a Python script to review synthetic CSV network-flow records and flag simple patterns such as high byte counts or repeated connections. Documented the analysis approach and limitations; the dataset is not a real packet capture.
+Created a Python script to review sample network-flow CSV records and flag high byte counts and repeated connections for further investigation. Documented the detection rules and limitations.
 
-Project: [Network Traffic Analysis](Network-Traffic-Analysis/)
+[Project repository](Network-Traffic-Analysis/)
 
-## Web Application Security — IDOR/BOLA Case Study
-Prepared a fictional object-level access-control case study covering test scenarios, expected behavior, impact, and remediation. This is documentation-based and has not been tested against a live application.
+## Web Application Security — IDOR/BOLA
+Documented an object-level access-control case study with test scenarios, expected behavior, potential impact, and remediation recommendations. The current project is a case study rather than a live application test.
 
-Project: [Web Application Security](Web-Application-Security/)
+[Project repository](Web-Application-Security/)
 
-## Nmap Network Scanning — Lab Plan
-Prepared an authorized-lab scope checklist and findings-report template for a future Nmap scan. A real scan and its findings have not yet been added, so list this as planned learning rather than completed hands-on experience.
+## Nmap Network Scanning
+Prepared a scope checklist and findings-report template for an authorized lab scan. Scan output has not yet been added.
 
-Project: [Nmap Network Scanning](Nmap-Network-Scanning/)
+[Project repository](Nmap-Network-Scanning/)
 
 ## Tools
-Used in the current artifacts: Python, text/CSV sample data, Markdown, GitHub. Nmap, Wireshark, Burp Suite/OWASP ZAP, and SIEM platforms should be listed as hands-on tools only after actual practice and evidence are available.
+Used in the current repository: Python, CSV/text files, Markdown, and GitHub. Nmap, Wireshark, Burp Suite/OWASP ZAP, and SIEM platforms are not listed as hands-on experience in these project summaries because there is no practical evidence for them here.
