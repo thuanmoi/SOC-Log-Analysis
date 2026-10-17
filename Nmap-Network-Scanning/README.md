@@ -1,36 +1,32 @@
-# Nmap Network Scanning — Authorized Lab
+# Nmap Network Scanning
 
-## Objective
-Document how to inventory hosts and services in a small lab, interpret results, and recommend defensive actions.
+This project is for learning how to check which hosts and services are visible in a small lab, then explain what the results mean from a security point of view.
 
-## Important status
-This repository currently contains a **planned lab workflow**, not evidence of a completed Nmap scan. No scan output is claimed as real.
+**Status:** I have prepared the workflow and report template, but I have not added results from a real Nmap scan yet.
 
-## Scope and authorization
-- Scan only a system you own or a training target where you have explicit permission.
-- Define the target IP/range and permitted scan types before starting.
-- Do not scan company, public, or third-party systems without written authorization.
-- Avoid aggressive scripts or intrusive checks unless explicitly approved.
+## Before scanning
 
-## Planned workflow
-1. Record the lab target and authorization.
-2. Run a basic host/service discovery scan appropriate to the lab.
-3. Save the terminal output in `evidence/`.
-4. Review open ports and service/version details.
-5. Map each exposed service to its business purpose and potential risk.
-6. Recommend remediation and, after changes, verify the result.
-7. Write down limitations, including what the scan cannot prove.
+First, write down the target and confirm that you own it or have permission to test it. Keep the scan inside that agreed scope. Don't scan a company network, public IP, or someone else's device just to practise.
 
-## Suggested evidence to add after an actual lab scan
-- `evidence/scan-output.txt` — sanitized output from your own authorized lab.
-- `reports/findings.md` — observed ports/services, risk reasoning, recommendations, and limitations.
-- Screenshot(s) showing the scan command and result, with unrelated details removed.
+Use [scope-template.md](scope-template.md) to record the target, permission, allowed techniques, and any exclusions.
 
-## Report template
-Use `reports/findings-template.md` after collecting real results.
+## What I plan to do
 
-## Tools
-- Nmap: https://nmap.org/
+1. Run a basic scan against the approved lab target.
+2. Save the command and output so the result can be checked later.
+3. Review the ports and service names Nmap reports.
+4. Decide which services are expected and which need a closer look.
+5. Write recommendations based on the evidence, rather than assuming every open port is a vulnerability.
+6. If I make a change in the lab, scan again and compare the result.
 
-## Current limitations
-No scan has been executed as part of this repository update. Do not list Nmap as hands-on experience until you have run it in an authorized lab and reviewed the output.
+## Files
+
+- scope-template.md — record the target and testing permission before starting.
+- evidence/ — place for sanitized output from an actual lab scan.
+- reports/findings-template.md — report template to fill in after reviewing real output.
+
+## What is not here yet
+
+There is no real scan output in this repository, so I have not drawn conclusions about any host or service. I will add the command, results, and notes after completing a scan in an authorized lab.
+
+Tool: [Nmap](https://nmap.org/)
