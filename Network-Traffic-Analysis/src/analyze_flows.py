@@ -9,6 +9,7 @@ import sys
 BYTE_REVIEW_THRESHOLD = 5_000_000
 CONNECTION_REVIEW_THRESHOLD = 10
 
+
 def analyze(path):
     findings = []
     with open(path, newline="", encoding="utf-8") as handle:
@@ -17,6 +18,10 @@ def analyze(path):
                 byte_count = int(row["bytes"])
                 connections = int(row["connection_count"])
             except (KeyError, ValueError):
+                continue
+
+            # Negative byte or connection counts are invalid flow data.
+            if byte_count < 0 or connections < 0:
                 continue
 
             reasons = []
@@ -35,6 +40,7 @@ def analyze(path):
                 })
     return findings
 
+
 def main():
     path = sys.argv[1] if len(sys.argv) > 1 else "data/sample_flows.csv"
     try:
@@ -50,6 +56,7 @@ def main():
             "reasons={reasons} bytes={bytes} connections={connection_count}"
             .format(**item)
         )
+
 
 if __name__ == "__main__":
     main()
