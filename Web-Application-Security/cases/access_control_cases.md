@@ -1,19 +1,23 @@
-# Fictional Access-Control Cases
+# Access-Control Scenarios
 
-All examples below are fictional and intended for an authorized training lab.
+These examples describe behavior to check in an authorized training application.
 
-## Case A: Own object
-- User A signs in and requests object A.
-- Expected: the application returns object A if the user is authorized.
+## Case A — Own record
+User A signs in and requests a record owned by User A.
 
-## Case B: Different user's object
-- User A requests object B, which belongs to User B.
-- Expected: the server denies access or returns a safe not-found response.
-- Risk if authorization is missing: User A may view or modify data belonging to User B.
+**Expected:** the server returns the record if the account has the required permission.
 
-## Case C: Unauthenticated request
-- A request is made without a valid session.
-- Expected: authentication is required before protected data is returned.
+## Case B — Another user's record
+User A signs in and requests a record owned by User B.
+
+**Expected:** the server denies access or returns a safe not-found response.
+
+**Potential impact if authorization is missing:** one user may view or change another user's data.
+
+## Case C — No valid session
+A request is made without a valid session.
+
+**Expected:** the application requires authentication before returning protected data.
 
 ## Review note
-Changing an identifier alone does not prove a vulnerability. The key question is whether the server enforces authorization for the authenticated principal and requested object.
+An identifier change alone is not enough to establish IDOR/BOLA. The key check is whether the server enforces object-level authorization for the signed-in user and requested operation.
