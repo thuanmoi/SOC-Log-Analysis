@@ -1,24 +1,26 @@
-# Test Scenarios and Results
+# Test Scenarios
 
-The analysis script was checked in a Python runtime using the source and synthetic CSV stored in this repository. Additional temporary CSV rows were used to check threshold boundaries and malformed numeric values.
+The following cases describe the expected behavior of the CSV analysis script.
 
-| Case | Input | Expected behavior | Observed result |
-|---|---|---|---|
-| TC-01 | Byte count exactly 5,000,000 | Flag with `high_bytes` | Pass |
-| TC-02 | Connection count exactly 10 | Flag with `many_connections` | Pass |
-| TC-03 | Both thresholds met | Include both reasons | Pass |
-| TC-04 | Low byte and connection counts | Do not flag | Pass |
-| TC-05 | Invalid numeric field | Skip the row | Pass |
+| Case | Input | Expected behavior |
+|---|---|---|
+| TC-01 | Byte count at or above 5,000,000 | Flag with `high_bytes` |
+| TC-02 | Connection count of at least 10 | Flag with `many_connections` |
+| TC-03 | Both thresholds met | Include both reasons |
+| TC-04 | Low byte and connection counts | Do not flag |
+| TC-05 | Invalid numeric field | Handle the row according to the parser's validation logic |
 
-## Sample run
+## Run locally
 
-Command, run from the `Network-Traffic-Analysis` folder:
+Open the `Network-Traffic-Analysis` folder in Visual Studio Code, open its integrated terminal, and run:
 
 ```bash
 python src/analyze_flows.py data/sample_flows.csv
 ```
 
-Observed standard output:
+## Example output
+
+With the current sample CSV, three rows should be flagged for review:
 
 ```text
 Rows flagged for review: 3
@@ -31,4 +33,3 @@ REVIEW row=7 src_ip=192.0.2.31 dst_ip=203.0.113.53 reasons=many_connections byte
 
 - This is analysis of synthetic CSV flow summaries, not a real PCAP or Wireshark capture.
 - Thresholds are simple review rules; a flagged row is not proof of malicious activity.
-- These results were checked in the Python runtime used for this review, not in the user's Colab session.
