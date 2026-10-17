@@ -16,11 +16,11 @@ These cases check the main detection path, negative cases, and input-handling ed
 | TC-08 | Unknown event type | Ignore the event | Passed in GitHub Actions |
 | TC-09 | Input lines are out of chronological order | Process chronologically and preserve source line number | Passed in GitHub Actions |
 | TC-10 | Custom threshold | Apply the configured threshold | Passed in GitHub Actions |
-| TC-11 | Zero/invalid threshold or window | Raise a clear `ValueError` | Passed in GitHub Actions |
+| TC-11 | Zero/negative/non-finite threshold or window | Raise a clear `ValueError` | Awaiting CI for latest commit |
 
 ## Verification evidence
 
-The GitHub Actions workflow **SOC detector tests** completed successfully on the `main` branch (run for commit `29c17e8`). The `unit-tests` job passed. The workflow runs the unit-test command and then executes the sample log script. See the repository's Actions tab for the run details.
+The GitHub Actions workflow **SOC detector tests** completed successfully for commit `29c17e8`. After that run, input validation and its tests were updated in commits `0dee7b9` and `7b702fa`. The new changes must pass a subsequent workflow run before TC-11 can be marked as verified. See the repository's Actions tab for the latest result.
 
 ## Reproduce locally
 
