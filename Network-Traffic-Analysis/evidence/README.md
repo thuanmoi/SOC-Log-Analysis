@@ -1,11 +1,7 @@
-# Evidence Folder — Network Traffic Analysis
+# Network Analysis Evidence
 
-No real packet-capture evidence is included yet.
+This folder is for evidence from an authorized lab capture.
 
-When you complete a capture in an authorized lab, add:
-- A small, safe-to-share PCAP only if it contains no sensitive traffic.
-- Sanitized screenshots showing useful Wireshark views.
-- `display-filters.md` with the exact filters used and what each reveals.
-- A short note describing capture scope, time range, protocols, observations, and limitations.
+If a PCAP is added, include a short note with the capture scope, protocols reviewed, time range, Wireshark display filters, observations, and limitations. Only include captures that are safe to share.
 
-Never capture or upload traffic from a company or third-party network without explicit authorization. Do not include credentials, session cookies, tokens, or personal data.
+Do not capture or publish company or third-party traffic without explicit permission. Remove credentials, cookies, tokens, and personal information.
