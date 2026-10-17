@@ -6,6 +6,7 @@ This is a learning example, not a production detection system.
 """
 from collections import defaultdict, deque
 from datetime import datetime, timedelta
+import math
 import re
 import sys
 
@@ -41,8 +42,17 @@ def detect(lines, threshold=3, window_minutes=5):
     """
     if not isinstance(threshold, int) or isinstance(threshold, bool) or threshold < 1:
         raise ValueError("threshold must be a positive integer")
-    if not isinstance(window_minutes, (int, float)) or isinstance(window_minutes, bool) or window_minutes <= 0:
-        raise ValueError("window_minutes must be positive")
+    try:
+        valid_window = (
+            isinstance(window_minutes, (int, float))
+            and not isinstance(window_minutes, bool)
+            and window_minutes > 0
+            and math.isfinite(float(window_minutes))
+        )
+    except (OverflowError, ValueError):
+        valid_window = False
+    if not valid_window:
+        raise ValueError("window_minutes must be a finite positive number")
 
     parsed_events = []
     for line_number, line in enumerate(lines, start=1):
