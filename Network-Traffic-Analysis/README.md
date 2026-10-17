@@ -1,18 +1,23 @@
-# Network Traffic Analysis (Synthetic Flow Data)
+# Network Traffic Analysis
 
-## Objective
-Practice reviewing network-flow records and identifying traffic patterns that may need further investigation.
+## Overview
+This project uses Python to review sample network-flow records and flag entries that may deserve a closer look.
 
-## Dataset
-`data/sample_flows.csv` contains synthetic flow summaries. It is not a packet capture and was not collected from a real network.
+## Input
+`data/sample_flows.csv` contains synthetic flow summaries. It is not a PCAP and was not captured from a real network.
+
+## What the script checks
+- Byte counts at or above 5,000,000.
+- Connection counts of 10 or more.
+- Rows that meet both conditions.
+
+These are simple review rules, not proof of malicious activity. High-volume transfers and repeated connections may be normal depending on the system and its role.
+
+## Files
+- `data/sample_flows.csv` — sample flow records.
+- `src/analyze_flows.py` — analysis script.
+- `reports/analysis_report.md` — notes on the sample data.
+- `tests/test_cases.md` — expected behavior for test scenarios.
 
 ## Current scope
-- Read structured flow data with Python.
-- Identify simple indicators such as unusually high byte counts or repeated connections.
-- Document observations and limitations.
-
-## Tools
-Python and CSV are used in this version. Wireshark has not been used to capture or inspect real packets for this artifact. A future version can add a lab PCAP and Wireshark screenshots after authorized hands-on practice.
-
-## Limitations
-Synthetic data cannot establish that a real attack occurred. A high byte count or repeated connection is only a lead for further investigation.
+This version analyzes CSV data. It does not include a real packet capture or Wireshark analysis.
