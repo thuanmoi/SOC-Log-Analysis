@@ -1,32 +1,32 @@
 # Portfolio Projects
 
-This repository contains four security learning projects. Each project has its own README, source files or case notes, and a description of its current scope.
+A collection of security projects and exercises focused on log analysis, network traffic, and web application security.
 
 ## Projects
 
 ### SOC Log Analysis
-Python script for reviewing authentication log entries and flagging repeated failed logins followed by a successful login. Includes sample logs, test scenarios, and an incident report.
+A Python script for reviewing authentication logs and identifying repeated failed logins followed by a successful login. Includes sample logs, test scenarios, and an incident report.
 
 [View SOC Log Analysis](SOC-Log-Analysis/)
 
 ### Network Traffic Analysis
-Python analysis of sample network-flow CSV data, with notes on patterns that may warrant further investigation.
+A Python script that reviews sample network-flow CSV records and flags patterns for further investigation.
 
 [View Network Traffic Analysis](Network-Traffic-Analysis/)
 
 ### Web Application Security
-IDOR/BOLA access-control case study with test scenarios and remediation notes.
+An IDOR/BOLA case study covering access-control test scenarios and remediation recommendations.
 
 [View Web Application Security](Web-Application-Security/)
 
 ### Nmap Network Scanning
-Lab scope checklist and findings-report template for an authorized scan.
+Documentation for an authorized lab workflow, including a scope checklist and findings-report template.
 
 [View Nmap Network Scanning](Nmap-Network-Scanning/)
 
-## Scope
+## Scope and limitations
 
-The SOC and network projects use sample data; the web project is a case study. The Nmap folder documents a planned lab workflow. I will add real lab outputs as I complete those exercises. The repository does not claim that a simulated example is evidence from a production system.
+The SOC and network projects use sample data. The web security project is a case study, and the Nmap project currently contains the lab workflow and report template. Results from hands-on lab exercises will be added when available. The examples in this repository should not be interpreted as findings from a production environment.
 
 ## Responsible practice
 
