@@ -1,10 +1,7 @@
-# Evidence
+# Nmap Evidence
 
-This folder is reserved for output from an actual, authorized lab scan.
+Save sanitized output from an actual scan of an authorized lab target here.
 
-When adding evidence:
-- Include the target scope and why you were authorized to scan it.
-- Save sanitized output and the exact command used.
-- Remove public IPs, internal hostnames, usernames, tokens, and other sensitive details when necessary.
-- Never upload scans of company or third-party systems without explicit permission.
-- Do not add placeholder output that could be mistaken for a real scan.
+Include the exact command, target scope, date, and a short explanation of the results. Remove sensitive hostnames, addresses, usernames, and other information when needed.
+
+Do not add example output that could be mistaken for a real scan. Do not scan systems without permission.
