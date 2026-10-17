@@ -2,26 +2,25 @@
 
 ## Project overview
 
-I built this small Python project to practice a common SOC Tier 1 task: reviewing authentication logs and identifying a login pattern that deserves investigation.
+This project demonstrates a small SOC Tier 1 workflow: parse authentication events, correlate repeated failures with a later successful login, and produce a triage alert for further investigation.
 
-The detector looks for three or more failed login attempts followed by a successful login for the same username and source IP within five minutes. A matching event is treated as a triage alert, not proof that an account has been compromised.
+The detector flags three or more failed login attempts followed by a successful login for the same username and source IP within five minutes. An alert is a lead for investigation, not proof of account compromise.
 
-## Objectives
+## What it demonstrates
 
-- Parse line-based authentication events.
-- Correlate failed and successful login events by user and source IP.
-- Apply a configurable threshold and time window.
-- Test expected and edge-case behavior.
-- Write a short analyst-style triage report.
+- Python log parsing using the standard library.
+- Correlation by username and source IP.
+- Threshold and time-window logic.
+- Handling malformed events and timezone-aware timestamps.
+- Unit tests for expected, negative, and edge-case behavior.
+- Basic analyst triage and documenting limitations.
 
 ## Repository structure
 
 ```text
 SOC-Log-Analysis/
-├── logs/
-│   └── sample_auth.log
-├── src/
-│   └── detect_login.py
+├── logs/sample_auth.log
+├── src/detect_login.py
 ├── tests/
 │   ├── test_cases.md
 │   └── test_detector.py
@@ -30,20 +29,10 @@ SOC-Log-Analysis/
 │   └── execution_report.md
 └── evidence/
     ├── README.md
-    ├── sample_run_output.txt
-    └── unit_test_output.txt
+    └── sample_run_output.txt
 ```
 
-## How I approached the problem
-
-1. Defined a simple log format containing timestamp, username, source IP, and event type.
-2. Parsed each line and skipped entries that do not match the expected format.
-3. Tracked failed attempts separately for each user/IP pair.
-4. Removed failures older than the five-minute window.
-5. Raised an alert when a successful login followed at least three failures in the active window.
-6. Added unit tests for the main detection path and several negative/edge cases.
-
-## Run the project
+## Run locally
 
 Requires Python 3.9+ and no third-party packages. Run these commands from this directory:
 
@@ -52,25 +41,22 @@ python src/detect_login.py logs/sample_auth.log
 PYTHONPATH=src python -m unittest discover -s tests -v
 ```
 
-## Result
+## Validation
 
-With the included sample data, the detector identifies one suspicious sequence for user `alice` from `192.0.2.10`. The repeatable unit-test suite covers five scenarios; the recorded run shows all five tests passing.
+A GitHub Actions workflow runs the unit tests on pushes and pull requests. See the repository's **Actions** tab for the current result. Do not treat an old saved output file as evidence for the current code version.
 
-- [Sample execution output](evidence/sample_run_output.txt)
-- [Unit-test output](evidence/unit_test_output.txt)
-- [Execution and triage notes](reports/execution_report.md)
+- [Test plan](tests/test_cases.md)
+- [Execution and triage report](reports/execution_report.md)
+- [Incident report](reports/incident_report.md)
+- [Sample log](logs/sample_auth.log)
 
 ## Analyst interpretation
 
-Repeated failures followed by a success can be consistent with password guessing or a user repeatedly entering an incorrect password. The pattern alone is insufficient to confirm compromise. In a real SOC workflow, I would validate the source and device, check MFA results, compare the activity with the user's normal behavior, and review post-login actions before recommending containment.
+Repeated failures followed by a success can be consistent with password guessing, but may also be caused by a user repeatedly entering an incorrect password. In a real SOC workflow, validate the source and device, check MFA results, compare the activity with the user's normal behavior, and review post-login actions before recommending containment.
 
 ## Scope and limitations
 
-- The included log events are synthetic and use documentation-range IP addresses.
-- The script expects events to be ordered by timestamp and to follow the documented format.
+- The included events are synthetic and use documentation-range IP addresses.
+- Only timezone-aware ISO timestamps and the documented event types are accepted.
+- Events are processed chronologically, and original line numbers are retained for traceability.
 - This is a learning detector, not a production SIEM or a complete incident-response solution.
-- The saved execution artifacts document a controlled Python run used to validate the project; they are not logs from a real company environment.
-
-## Skills practiced
-
-Python log parsing, basic event correlation, threshold-based detection, unit testing, alert triage, incident-report writing, and documenting limitations.
