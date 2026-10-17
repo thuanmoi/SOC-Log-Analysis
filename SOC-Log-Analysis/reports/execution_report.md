@@ -22,7 +22,7 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 
 ## Validation result
 
-The GitHub Actions workflow **SOC detector tests** completed with **Success** on the `main` branch for commit `29c17e8`. The `unit-tests` job passed. Its configured steps run the detector unit tests and then run the script against the sample log. The current result can be checked in the repository's Actions tab.
+A previous GitHub Actions run completed with **Success** on the `main` branch for commit `29c17e8`. Since then, input validation and boundary-case tests have been expanded. Re-run or inspect GitHub Actions for the latest commit before treating those newest changes as CI-verified. The configured job runs the detector unit tests and then the script against the sample log.
 
 This verifies that the configured automated checks passed in GitHub Actions; it does not by itself establish production readiness or prove that the detector has been used against real company logs.
 
@@ -45,7 +45,8 @@ Several failed logins followed by a success may be consistent with password gues
 - Uses a configurable failure threshold and time window.
 - Processes parsed events chronologically while retaining original line numbers.
 - Ignores malformed lines, timezone-naive timestamps, and unsupported event types.
-- Rejects non-positive threshold/window values.
+- Rejects invalid thresholds and non-positive, non-finite, or excessively large time-window values.
+- Treats the five-minute boundary as inclusive: a failure exactly five minutes before success remains in the window.
 
 ## Limitations
 
