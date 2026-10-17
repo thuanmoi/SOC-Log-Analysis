@@ -1,26 +1,25 @@
-# Sample Alert Triage Report
+# Authentication Alert — Triage Notes
 
-## Status
-Training exercise — synthetic data only.
+## Context
+Training example based on synthetic log entries.
 
-## Summary
-The detector identifies three failed login attempts followed by a successful login for user `alice` from `192.0.2.10` within the configured five-minute window.
+## Observed pattern
+The sample log contains three failed login attempts followed by a successful login for `alice` from `192.0.2.10` within the configured five-minute window.
 
-## Evidence
 - 09:30:01Z — login failed
 - 09:30:04Z — login failed
 - 09:30:07Z — login failed
 - 09:30:10Z — login succeeded
 
-## Assessment
-This pattern may indicate repeated password guessing followed by a successful authentication. The log alone does not prove that the account was compromised.
+## Initial assessment
+Repeated failures followed by success can be consistent with password guessing, but this pattern alone does not prove compromise. The source and timing need to be checked against normal activity.
 
-## Recommended investigation
-1. Verify whether the source, device, and login time are expected.
-2. Review MFA results, surrounding authentication events, and account activity.
-3. Check for new accounts, privilege changes, and unusual access after login.
-4. Preserve relevant logs and escalate according to the organization's incident-response process.
-5. Contain the account or source only with appropriate authorization and according to policy.
+## Suggested follow-up
+1. Confirm whether the source, device, and login time are expected.
+2. Review nearby authentication events and MFA results.
+3. Check for unusual activity after login, including new accounts or privilege changes.
+4. Preserve relevant logs and follow the organization's incident-response process.
+5. Contain an account or source only under the appropriate authorization and policy.
 
 ## Limitations
-All timestamps and events are synthetic. No real incident or production system was investigated.
+The timestamps and events are synthetic and do not describe a real incident.
