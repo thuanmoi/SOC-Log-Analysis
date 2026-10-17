@@ -1,12 +1,12 @@
-# Evidence Folder — SOC Log Analysis
+# Run Evidence
 
-The current project uses synthetic authentication logs.
+Use this folder for output from running the detector against the sample logs.
 
-When tests are executed, record:
-- The test case ID.
-- Input scenario and expected behavior.
-- Actual output and whether it passed.
-- A sanitized screenshot or text capture of the result.
-- Any limitations or false-positive considerations.
+A useful record includes:
+- The command used.
+- The input file.
+- The actual output.
+- Which test scenario the run covers.
+- Any unexpected behavior or limitations.
 
-Do not claim a test passed until it has actually been run. Never upload real company logs or identifying information.
+Keep sample data clearly labelled. Do not upload company logs, credentials, or identifying information.
