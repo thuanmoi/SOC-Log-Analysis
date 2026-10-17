@@ -1,6 +1,5 @@
-from datetime import datetime
 import unittest
-from detect_login import detect
+from detect_login import detect, parse_line
 
 
 def event(ts, user="alice", ip="192.0.2.10", kind="login_failed"):
@@ -9,23 +8,66 @@ def event(ts, user="alice", ip="192.0.2.10", kind="login_failed"):
 
 class DetectionTests(unittest.TestCase):
     def test_three_failures_then_success_within_window_alerts(self):
-        lines = [event("2026-10-01T09:30:01Z"), event("2026-10-01T09:30:04Z"), event("2026-10-01T09:30:07Z"), event("2026-10-01T09:30:10Z", kind="login_success")]
-        self.assertEqual(len(detect(lines)), 1)
+        lines = [
+            event("2026-10-01T09:30:01Z"),
+            event("2026-10-01T09:30:04Z"),
+            event("2026-10-01T09:30:07Z"),
+            event("2026-10-01T09:30:10Z", kind="login_success"),
+        ]
+        alerts = detect(lines)
+        self.assertEqual(len(alerts), 1)
+        self.assertEqual(alerts[0]["user"], "alice")
+        self.assertEqual(alerts[0]["failed_attempts"], 3)
 
     def test_two_failures_do_not_alert(self):
-        lines = [event("2026-10-01T09:30:01Z"), event("2026-10-01T09:30:04Z"), event("2026-10-01T09:30:10Z", kind="login_success")]
+        lines = [
+            event("2026-10-01T09:30:01Z"),
+            event("2026-10-01T09:30:04Z"),
+            event("2026-10-01T09:30:10Z", kind="login_success"),
+        ]
         self.assertEqual(detect(lines), [])
 
     def test_old_failures_expire_from_window(self):
-        lines = [event("2026-10-01T09:00:01Z"), event("2026-10-01T09:01:02Z"), event("2026-10-01T09:02:03Z"), event("2026-10-01T09:10:04Z", kind="login_success")]
+        lines = [
+            event("2026-10-01T09:00:01Z"),
+            event("2026-10-01T09:01:02Z"),
+            event("2026-10-01T09:02:03Z"),
+            event("2026-10-01T09:10:04Z", kind="login_success"),
+        ]
         self.assertEqual(detect(lines), [])
 
     def test_failures_from_different_users_are_not_combined(self):
-        lines = [event("2026-10-01T09:30:01Z"), event("2026-10-01T09:30:02Z", user="bob"), event("2026-10-01T09:30:03Z"), event("2026-10-01T09:30:04Z", kind="login_success")]
+        lines = [
+            event("2026-10-01T09:30:01Z", user="alice"),
+            event("2026-10-01T09:30:02Z", user="bob"),
+            event("2026-10-01T09:30:03Z", user="alice"),
+            event("2026-10-01T09:30:04Z", kind="login_success", user="alice"),
+        ]
+        self.assertEqual(detect(lines), [])
+
+    def test_failures_from_different_ips_are_not_combined(self):
+        lines = [
+            event("2026-10-01T09:30:01Z", ip="192.0.2.10"),
+            event("2026-10-01T09:30:02Z", ip="192.0.2.11"),
+            event("2026-10-01T09:30:03Z", ip="192.0.2.12"),
+            event("2026-10-01T09:30:04Z", ip="192.0.2.10", kind="login_success"),
+        ]
         self.assertEqual(detect(lines), [])
 
     def test_malformed_line_is_ignored(self):
+        self.assertIsNone(parse_line("not-a-valid-log-line"))
         self.assertEqual(detect(["not-a-valid-log-line"]), [])
+
+    def test_invalid_timestamp_is_ignored(self):
+        self.assertIsNone(parse_line("not-a-date user=alice src_ip=192.0.2.10 event=login_failed"))
+
+    def test_custom_threshold_can_be_used(self):
+        lines = [
+            event("2026-10-01T09:30:01Z"),
+            event("2026-10-01T09:30:02Z"),
+            event("2026-10-01T09:30:03Z", kind="login_success"),
+        ]
+        self.assertEqual(len(detect(lines, threshold=2)), 1)
 
 
 if __name__ == "__main__":
