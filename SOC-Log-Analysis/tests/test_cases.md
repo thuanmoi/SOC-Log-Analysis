@@ -16,12 +16,12 @@ These cases check the main detection path, negative cases, and input-handling ed
 | TC-08 | Unknown event type | Ignore the event | Passed in GitHub Actions |
 | TC-09 | Input lines are out of chronological order | Process chronologically and preserve source line number | Passed in GitHub Actions |
 | TC-10 | Custom threshold | Apply the configured threshold | Passed in GitHub Actions |
-| TC-11 | Zero/negative/non-finite or excessively large window | Raise a clear `ValueError` | Awaiting CI for latest commit |
-| TC-12 | A failure occurs exactly five minutes before success | Count the boundary event because the window is inclusive | Awaiting CI for latest commit |
+| TC-11 | Zero/negative/non-finite or excessively large window | Raise a clear `ValueError` | Passed in GitHub Actions |
+| TC-12 | A failure occurs exactly five minutes before success | Count the boundary event because the window is inclusive | Passed in GitHub Actions |
 
 ## Verification evidence
 
-A previous GitHub Actions run passed for commit `29c17e8`. Subsequent changes now handle excessively large finite time windows and add tests for that case and the inclusive five-minute boundary. TC-11 and TC-12 remain awaiting a workflow run for these latest changes. See the repository's Actions tab for the current result.
+The user confirmed that the latest GitHub Actions run for the recent detector and test changes completed successfully. TC-11 and TC-12 are marked as passed based on that confirmation. See the repository's Actions tab for the run details.
 
 ## Reproduce locally
 
