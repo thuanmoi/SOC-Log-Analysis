@@ -29,6 +29,17 @@ class DetectionTests(unittest.TestCase):
         ]
         self.assertEqual(detect(lines), [])
 
+    def test_failure_exactly_at_window_boundary_is_counted(self):
+        lines = [
+            event("2026-10-01T09:30:00Z"),
+            event("2026-10-01T09:31:00Z"),
+            event("2026-10-01T09:32:00Z"),
+            event("2026-10-01T09:35:00Z", kind="login_success"),
+        ]
+        alerts = detect(lines, window_minutes=5)
+        self.assertEqual(len(alerts), 1)
+        self.assertEqual(alerts[0]["failed_attempts"], 3)
+
     def test_old_failures_expire_from_window(self):
         lines = [
             event("2026-10-01T09:00:01Z"),
@@ -94,7 +105,7 @@ class DetectionTests(unittest.TestCase):
     def test_invalid_threshold_and_window_raise_value_error(self):
         with self.assertRaises(ValueError):
             detect([], threshold=0)
-        for invalid_window in (0, -1, math.inf, -math.inf, math.nan):
+        for invalid_window in (0, -1, math.inf, -math.inf, math.nan, 1e308):
             with self.subTest(window_minutes=invalid_window):
                 with self.assertRaises(ValueError):
                     detect([], window_minutes=invalid_window)
