@@ -1,5 +1,5 @@
+import math
 import unittest
-from datetime import timedelta
 
 from detect_login import detect, parse_line
 
@@ -94,8 +94,10 @@ class DetectionTests(unittest.TestCase):
     def test_invalid_threshold_and_window_raise_value_error(self):
         with self.assertRaises(ValueError):
             detect([], threshold=0)
-        with self.assertRaises(ValueError):
-            detect([], window_minutes=0)
+        for invalid_window in (0, -1, math.inf, -math.inf, math.nan):
+            with self.subTest(window_minutes=invalid_window):
+                with self.assertRaises(ValueError):
+                    detect([], window_minutes=invalid_window)
 
 
 if __name__ == "__main__":
