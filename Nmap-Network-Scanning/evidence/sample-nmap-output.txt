@@ -1,0 +1,20 @@
+# SIMULATED EXAMPLE — NOT REAL NMAP OUTPUT
+# This file is a training fixture written for the portfolio.
+# No Nmap process was run; no host was scanned.
+# Target uses TEST-NET-1 documentation address 192.0.2.10.
+
+Starting Nmap 7.95 ( https://nmap.org ) at 2026-10-17 10:00 +07
+Nmap scan report for 192.0.2.10
+Host is up (0.012s latency).
+Not shown: 997 closed tcp ports (reset)
+
+PORT    STATE SERVICE  VERSION
+22/tcp  open  ssh      OpenSSH 9.6 (protocol 2.0)
+80/tcp  open  http     nginx 1.24.0
+443/tcp open  ssl/http nginx 1.24.0
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 3.21 seconds
+
+IMPORTANT: Every result line above is fabricated for demonstration.
+Do not cite it as evidence from an actual scan or use it to make claims about a real system.
