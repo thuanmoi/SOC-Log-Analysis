@@ -1,29 +1,26 @@
-# Finding: Potential Broken Object-Level Authorization (IDOR/BOLA)
+# Case Study: Broken Object-Level Authorization (IDOR/BOLA)
 
-## Status
-Fictional training case study; not a finding from a live penetration test.
+## Context
+This is a hypothetical training scenario, not a finding from a live penetration test.
 
-## Severity
-Not assigned. Severity depends on verified impact, data sensitivity, exploitability, and the application's context.
-
-## Description
-An application may be vulnerable when it relies on a user-supplied object identifier without checking whether the authenticated user is authorized to access that object.
+## Issue
+An application may expose another user's record if it accepts a user-supplied object identifier without checking whether the signed-in user is allowed to access that object.
 
 ## Expected behavior
-The server checks authorization on every request for the specific object and operation.
+The server checks authorization for each requested object and operation. A user should not be able to read or modify another user's record merely by changing an identifier.
 
-## Safe validation plan
-1. Use two test accounts in an authorized lab.
-2. Create harmless test records owned by each account.
-3. Verify that each account can access its own record.
-4. Attempt the corresponding request for the other test account's record.
-5. Record only the minimum evidence needed and avoid real user data.
+## How to validate in a lab
+1. Use two dummy accounts in an authorized training app.
+2. Create harmless records owned by each account.
+3. Confirm each account can access its own record.
+4. Try the corresponding request for the other account's record.
+5. Compare the response with the expected access-control behavior and save minimal, sanitized evidence.
 
-## Remediation
-- Enforce server-side object-level authorization for read and write operations.
-- Deny by default.
+## Recommendations
+- Enforce object-level authorization on the server for read and write operations.
+- Deny access by default.
 - Add automated tests for cross-user access.
-- Review logs for suspicious access patterns where appropriate.
+- Review logs for unexpected access patterns.
 
-## Evidence
-No live evidence collected. Attach request/response excerpts only after safe, authorized lab testing.
+## Severity and evidence
+Severity cannot be assigned without verified impact and application context. No live evidence has been collected for this case study.
