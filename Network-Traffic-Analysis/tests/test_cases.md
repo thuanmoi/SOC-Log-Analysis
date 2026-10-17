@@ -1,6 +1,6 @@
 # Test Scenarios
 
-The following cases describe the expected behavior of the CSV analysis script. The current implementation silently skips a row when either required numeric field is missing or cannot be converted to an integer.
+These cases describe expected behavior for the CSV analysis script. A row is skipped if either required numeric field is missing, cannot be converted to an integer, or contains a negative byte/connection count.
 
 | Case | Input | Expected behavior |
 |---|---|---|
@@ -9,6 +9,9 @@ The following cases describe the expected behavior of the CSV analysis script. T
 | TC-03 | Both thresholds met | Include both reasons |
 | TC-04 | Low byte and connection counts | Do not flag |
 | TC-05 | Missing or non-integer `bytes` / `connection_count` value | Skip that row without stopping the analysis |
+| TC-06 | Negative byte count | Skip the invalid row |
+| TC-07 | Negative connection count | Skip the invalid row |
+| TC-08 | Valid row after invalid rows | Continue processing later rows |
 
 ## Run locally
 
@@ -19,7 +22,7 @@ python src/analyze_flows.py data/sample_flows.csv
 python -m unittest discover -s tests -v
 ```
 
-The automated tests cover both thresholds, the case where both rules match, rows below the thresholds, invalid numeric fields, and preservation of row numbers and addresses.
+The automated tests cover both thresholds, the case where both rules match, rows below thresholds, invalid numeric fields, negative counters, and preservation of row numbers and addresses.
 
 ## Example output
 
@@ -36,3 +39,4 @@ REVIEW row=7 src_ip=192.0.2.31 dst_ip=203.0.113.53 reasons=many_connections byte
 
 - This is analysis of synthetic CSV flow summaries, not a real PCAP or Wireshark capture.
 - Thresholds are simple review rules; a flagged row is not proof of malicious activity.
+- Rows with negative counters are skipped as invalid; this simple validator does not replace comprehensive schema validation.
