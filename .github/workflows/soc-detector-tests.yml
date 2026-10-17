@@ -49,6 +49,6 @@ jobs:
         with:
           python-version: "3.12"
       - name: Run network-flow unit tests
-        run: python -m unittest discover -s tests -v
+        run: PYTHONPATH=src python -m unittest discover -s tests -v
       - name: Run sample flow analysis
         run: python src/analyze_flows.py data/sample_flows.csv
