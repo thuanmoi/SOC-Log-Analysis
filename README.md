@@ -1,31 +1,22 @@
 # Fresher Security Engineer Portfolio
 
-This repository contains beginner-friendly security projects using synthetic data and documented case studies.
+This repository collects learning projects relevant to a Fresher Security Engineer / SOC-oriented role.
 
 ## Projects
 
-### 1. SOC Log Analysis
-Location: [SOC-Log-Analysis/](SOC-Log-Analysis/)
+1. [SOC Log Analysis](SOC-Log-Analysis/) — Python-based detection logic using synthetic authentication logs, with test scenarios and an incident report.
+2. [Network Traffic Analysis](Network-Traffic-Analysis/) — analysis of synthetic network-flow CSV data using Python. This is not a real PCAP or Wireshark capture.
+3. [Web Application Security](Web-Application-Security/) — fictional IDOR/BOLA access-control case study and test matrix; no live target was tested.
+4. [Nmap Network Scanning](Nmap-Network-Scanning/) — authorized-lab workflow, scope template, and findings-report template. A real scan has not yet been recorded in this repository.
 
-A Python-based learning project that parses synthetic authentication logs and flags repeated failed logins followed by a successful login.
+## Current tools and evidence
 
-### 2. Network Traffic Analysis
-Location: [Network-Traffic-Analysis/](Network-Traffic-Analysis/)
+The current portfolio contains Python, synthetic text/CSV data, Markdown reports, and GitHub documentation. Nmap, Wireshark, Burp Suite/OWASP ZAP, and SIEM platforms are tools to practice in authorized labs; this repository does not claim hands-on evidence for those tools unless a project explicitly includes it.
 
-A Python analysis of a synthetic network-flow CSV to identify patterns that may deserve investigation. This is data analysis, not a real packet capture or a Wireshark investigation.
+## Responsible practice
 
-### 3. Web Application Security Case Studies
-Location: [Web-Application-Security/](Web-Application-Security/)
+Only test systems you own or have explicit permission to assess. Do not upload company logs, credentials, tokens, cookies, personal data, or confidential network details.
 
-A documented, lab-oriented review of access-control issues such as IDOR/BOLA. This is a case study, not a claim of testing a live website.
+## Portfolio status
 
-## Tools and scope
-
-- Used in these portfolio artifacts: Python, CSV/text log data, Markdown, GitHub.
-- Tools to practice next in an authorized lab: Wireshark, Nmap, Burp Suite or OWASP ZAP, and a SIEM such as Splunk.
-- All example data is synthetic. No production systems were accessed.
-- Findings are indicators for investigation, not proof of compromise.
-
-## About
-
-This portfolio is a learning record for Fresher Security Engineer applications. Project descriptions should be updated as hands-on work and evidence are added.
+See [PORTFOLIO_STATUS.md](PORTFOLIO_STATUS.md) for completed documentation and evidence still to collect.
