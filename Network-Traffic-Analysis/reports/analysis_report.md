@@ -1,21 +1,18 @@
-# Network Flow Review Report
+# Network Flow Review
 
 ## Scope
-This report describes a learning analysis of synthetic CSV flow summaries. It is not based on a real network capture.
+This review uses synthetic CSV flow summaries rather than traffic captured from a live network.
 
-## Review candidates
-- Rows with byte counts at or above 5,000,000 are flagged for review.
+## Patterns flagged by the script
+- Rows with at least 5,000,000 bytes are flagged for review.
 - Rows with 10 or more connections are flagged for review.
-- The sample includes large transfers from `192.0.2.25` and repeated DNS connections from `192.0.2.31`.
+- The sample includes a large transfer from `192.0.2.25` and repeated DNS connections from `192.0.2.31`.
 
 ## Interpretation
-These patterns may be normal in some environments. Before calling them suspicious, an analyst would need context such as asset role, expected traffic, destination reputation, time of day, and packet-level details.
+These patterns are leads for review, not findings of malicious activity. An analyst would need context such as the asset's role, expected traffic, destination, timing, and packet-level details before drawing conclusions.
 
-## Next steps in an authorized lab
-1. Open an approved lab PCAP in Wireshark.
-2. Review endpoints, protocols, conversations, and time ranges.
-3. Compare packet evidence with the flow-level observations.
-4. Record filters, screenshots, and limitations.
+## Further investigation
+In an authorized lab, compare flow-level observations with a PCAP in Wireshark. Record the filters used and note where packet evidence supports or contradicts the initial observations.
 
 ## Limitations
-The dataset is synthetic. No real packets were captured, and no conclusion about a real incident can be drawn.
+The dataset is synthetic. No real packets were captured, so this report makes no claim about an actual network incident.
