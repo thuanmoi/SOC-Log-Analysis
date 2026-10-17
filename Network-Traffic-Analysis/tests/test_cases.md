@@ -1,6 +1,6 @@
 # Test Scenarios
 
-The following cases describe the expected behavior of the CSV analysis script.
+The following cases describe the expected behavior of the CSV analysis script. The current implementation silently skips a row when either required numeric field is missing or cannot be converted to an integer.
 
 | Case | Input | Expected behavior |
 |---|---|---|
@@ -8,7 +8,7 @@ The following cases describe the expected behavior of the CSV analysis script.
 | TC-02 | Connection count of at least 10 | Flag with `many_connections` |
 | TC-03 | Both thresholds met | Include both reasons |
 | TC-04 | Low byte and connection counts | Do not flag |
-| TC-05 | Invalid numeric field | Handle the row according to the parser's validation logic |
+| TC-05 | Missing or non-integer `bytes` / `connection_count` value | Skip that row without stopping the analysis |
 
 ## Run locally
 
