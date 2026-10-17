@@ -21,6 +21,7 @@ Use [scope-template.md](scope-template.md) to record the target, permission, all
 - `evidence/` — sanitized output from a completed lab scan.
 - `reports/findings-template.md` — report structure for observed results.
 - `reports/illustrative-practice-walkthrough.md` — a clearly labeled synthetic example explaining commands and interpretation; it is not real scan evidence.
+- `reports/nmap-case-study.md` — a structured scenario-based service review with simulated findings, risk reasoning, recommendations and a path to verified evidence.
 
 ## Current status
 This repository has the workflow, report template, and an illustrative training walkthrough. **There is still no verified real scan output in this repository.** The walkthrough's sample output is synthetic and must not be represented as a scan that was actually run.
