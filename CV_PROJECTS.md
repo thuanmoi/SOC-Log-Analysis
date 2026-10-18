@@ -13,14 +13,16 @@ Created a Python script to review sample network-flow CSV records and flag high 
 [Project repository](Network-Traffic-Analysis/)
 
 ## Web Application Security — IDOR/BOLA
-Documented an object-level access-control case study with test scenarios, expected behavior, potential impact, and remediation recommendations. The current project is a case study rather than a live application test.
+Documented an object-level access-control case study with test scenarios, expected behavior, potential impact, and remediation recommendations. This project is a case study rather than a live application test.
 
 [Project repository](Web-Application-Security/)
 
 ## Nmap Network Scanning
-Prepared a scope checklist and findings-report template for an authorized lab scan. Scan output has not yet been added.
+Conducted an authorized Nmap lab scan against the local host (`127.0.0.1`). Collected host-discovery, TCP port-scan, and service-detection outputs; checked selected services against local Windows service and port information; and documented findings and assessment limitations. Actual scan evidence and reports are stored in the project folder.
+
+**Scope:** Localhost only. The scan did not assess external network reachability or perform exploitation. Open or filtered ports are observations to investigate, not proof of vulnerabilities.
 
 [Project repository](Nmap-Network-Scanning/)
 
 ## Tools
-Used in the current repository: Python, CSV/text files, Markdown, GitHub, and GitHub Actions for automated tests. Nmap, Wireshark, Burp Suite/OWASP ZAP, and SIEM platforms are not listed as hands-on experience in these project summaries because there is no practical evidence for them here.
+Verified hands-on evidence in this repository includes Python-based log and network-flow analysis, Git/GitHub, GitHub Actions, and Nmap for a localhost lab scan. Wireshark, Burp Suite/OWASP ZAP, and SIEM platforms are not claimed as hands-on experience by these project summaries.
