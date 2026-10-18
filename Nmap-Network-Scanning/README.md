@@ -24,12 +24,13 @@ Before scanning a different target, I would record the authorization, target ran
 
 See [reports/actual-lab-assessment.md](reports/actual-lab-assessment.md) for observations transcribed from my terminal screenshots, including commands, ports, service identification, PowerShell validation, and limitations.
 
-**Evidence limitation:** the report is based on my actual local exercise, but the raw Nmap output files from my workstation have not yet been uploaded to this repository. The results are therefore not independently reproducible from repository artifacts alone. I plan to add sanitized original outputs while preserving their provenance.
+**Evidence available:** the repository includes the actual Nmap output files collected during the local exercise, alongside the assessment reports. These artifacts allow readers to inspect the recorded results. Reproducing the scan still requires an equivalent environment and rerunning the documented commands.
 
 ## Repository contents
 
 - `scope-template.md` — authorization and scope checklist.
 - `reports/actual-lab-assessment.md` — findings from my local hands-on exercise, with limitations stated.
+- `evidence/host-discovery.txt`, `tcp-baseline.*`, and `service-detection.*` — actual outputs from the documented localhost scan.
 - `evidence/sample-nmap-output.txt` — **synthetic training fixture**, not actual Nmap output.
 - `reports/findings-template.md` — blank report structure.
 - `reports/sample-findings-report.md` — **simulated** report for documentation practice.
