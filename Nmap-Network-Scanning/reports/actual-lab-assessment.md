@@ -136,7 +136,7 @@ Observation 4 — Firewall review is incomplete
 5. Limitations
 
 1. All Nmap scans targeted '127.0.0.1', not the entire LAN or an external attacker's view.
-2. The original Nmap output files are included in `Nmap-Network-Scanning/evidence/` in the repository. The results can be reviewed from these artifacts; reproducing the scan requires an equivalent environment and rerunning the documented commands.
+2. The original Nmap output files are included in `../evidence/` relative to this report. The results can be reviewed from these artifacts; reproducing the scan requires an equivalent environment and rerunning the documented commands.
 3. I did not perform vulnerability scanning, exploitation, credential testing, or external reachability testing.
 4. I queried SMB signing properties but did not fully validate effective policy or negotiated signing behavior.
 5. The firewall query was a limited filter, not a complete firewall audit.
@@ -148,11 +148,10 @@ Through this exercise, I practiced host discovery, TCP connect scanning, saving 
 
 7. Next steps
 
-1. Upload sanitized original Nmap outputs while preserving their provenance.
-2. Complete the lab scope record without exposing sensitive host details.
-3. Validate SMB signing baseline and effective firewall policy.
-4. If an approved lab configuration change is made, document it and compare before/after scans.
-5. Reassess severity only when baseline, exposure, and impact are supported by evidence.
+1. Complete the lab scope record without exposing sensitive host details.
+2. Validate the SMB signing baseline and effective firewall policy.
+3. If an approved lab configuration change is made, document it and compare before/after scans.
+4. Reassess severity only when baseline, exposure, and impact are supported by evidence.
 
 Evidence integrity note
 
