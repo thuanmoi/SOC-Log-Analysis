@@ -1,30 +1,53 @@
 # Nmap Network Scanning
 
 ## Goal
-Use Nmap in an authorized lab to identify visible hosts and services, then explain which results need further review.
 
-## Before scanning
-Record the target and confirm that the scan is permitted. Keep the scan within the agreed scope; do not scan company networks, public IPs, or third-party systems without explicit authorization.
+I built this project to practice a structured, evidence-based network reconnaissance workflow with Nmap on my own Windows workstation. I combined scan results with Windows PowerShell checks to identify listening services, review SMB settings, and document what could—and could not—be concluded from the available evidence.
 
-Use [scope-template.md](scope-template.md) to record the target, permission, allowed techniques, and exclusions.
+## Scope and authorization
 
-## Workflow
-1. Run a basic scan against the approved lab target.
-2. Save the exact command and output.
-3. Review the reported ports and services.
-4. Check which services are expected for the target.
-5. Recommend changes based on observed evidence, not on open ports alone.
-6. If a configuration change is made in the lab, scan again and compare the results.
+The hands-on scan documented in this repository targeted **localhost (`127.0.0.1`) only** on my own workstation. It was not a scan of a public IP, company network, or third-party system.
 
-## Files
-- `scope-template.md` — target and authorization details.
-- `evidence/sample-nmap-output.txt` — **fabricated training fixture**, not actual Nmap output.
-- `reports/findings-template.md` — blank report structure for actual observations.
-- `reports/sample-findings-report.md` — completed **simulated** findings report to demonstrate analysis and documentation.
-- `reports/illustrative-practice-walkthrough.md` — synthetic example explaining commands and interpretation.
-- `reports/nmap-case-study.md` — scenario-based service review with simulated findings, risk reasoning, and recommendations.
+Before scanning a different target, I would record the authorization, target range, permitted techniques, time window, exclusions, and stop procedure using [scope-template.md](scope-template.md).
 
-## Current status
-The portfolio now includes a complete sample report and sample output fixture for demonstration. **No verified real Nmap scan has been performed or added yet.** All sample findings are explicitly labeled simulated and must not be represented as evidence from an actual scan. Replace them with output from an authorized lab scan when available.
+## My workflow
 
-Tool: [Nmap](https://nmap.org/)
+1. Checked the installed Nmap version.
+2. Ran host discovery against `127.0.0.1`.
+3. Performed a TCP connect scan of ports 1–1000 and saved output in Nmap, XML, and grepable formats.
+4. Used service/version detection on selected ports.
+5. Cross-checked listening ports and owning processes with Windows PowerShell.
+6. Reviewed SMB protocol settings, SMB shares, SMB signing properties, and Windows Firewall profiles.
+7. Documented observations, limitations, and recommended follow-up checks without treating every open port as a vulnerability.
+
+## Hands-on results
+
+See [reports/actual-lab-assessment.md](reports/actual-lab-assessment.md) for observations transcribed from my terminal screenshots, including commands, ports, service identification, PowerShell validation, and limitations.
+
+**Evidence limitation:** the report is based on my actual local exercise, but the raw Nmap output files from my workstation have not yet been uploaded to this repository. The results are therefore not independently reproducible from repository artifacts alone. I plan to add sanitized original outputs while preserving their provenance.
+
+## Repository contents
+
+- `scope-template.md` — authorization and scope checklist.
+- `reports/actual-lab-assessment.md` — findings from my local hands-on exercise, with limitations stated.
+- `evidence/sample-nmap-output.txt` — **synthetic training fixture**, not actual Nmap output.
+- `reports/findings-template.md` — blank report structure.
+- `reports/sample-findings-report.md` — **simulated** report for documentation practice.
+- `reports/illustrative-practice-walkthrough.md` — synthetic command walkthrough.
+- `reports/nmap-case-study.md` — scenario-based example with simulated findings.
+
+The synthetic examples are kept separate from the hands-on report and must not be presented as real scan evidence.
+
+## Key lessons
+
+- An open port is an observation, not automatically a vulnerability.
+- Service/version detection improves identification but does not prove exploitability.
+- Host-side validation helps explain which local process owns a listening port.
+- Firewall query results must be interpreted carefully; an empty filtered result does not prove that traffic is blocked.
+- Security findings should include evidence, impact considerations, limitations, and a practical next step.
+
+## Tools
+
+- [Nmap](https://nmap.org/)
+- Windows PowerShell
+- Git and GitHub
