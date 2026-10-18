@@ -1,6 +1,6 @@
 # Nmap Findings Report — Simulated Training Example
 
-> **Evidence status: SIMULATED.** This is a fictional practice report prepared to demonstrate analysis and documentation. No Nmap scan was executed. The target address `192.0.2.10` is from TEST-NET-1, reserved for documentation. Replace this report with observations from an authorized lab scan before presenting it as hands-on scan evidence.
+> **Evidence status: SIMULATED.** This is a fictional practice report prepared to demonstrate analysis and documentation. No Nmap scan was executed. The target address `192.0.2.10` is from TEST-NET-1, reserved for documentation. This simulated report is retained as a training example. The actual local exercise is documented separately in [actual-lab-assessment.md](actual-lab-assessment.md); use that report for the hands-on results and do not treat this simulated example as real scan evidence.
 
 ## Scope
 
@@ -48,4 +48,4 @@ The example lists HTTPS. This does not prove that TLS is securely configured. A 
 
 ## Evidence and reproducibility
 
-The accompanying `evidence/sample-nmap-output.txt` is a fabricated fixture for learning only. It is not command output from Nmap. When a real authorized lab scan is performed, save the original output separately, remove sensitive details, and update the report with only verified observations.
+The accompanying `evidence/sample-nmap-output.txt` is a fabricated fixture for learning only. It is not command output from Nmap. For the hands-on localhost exercise, see [actual-lab-assessment.md](actual-lab-assessment.md). Its raw Nmap output files still need to be added separately for independent reproduction.
