@@ -1,5 +1,7 @@
 # Nmap Case Study: Local Lab Service Review
 
+> The author's real localhost exercise is documented separately in [actual-lab-assessment.md](actual-lab-assessment.md). This case study remains a fictional scenario for practicing analysis.
+
 > **Scenario status: simulated case study.** The target output in this folder is illustrative training data, not captured from a real Nmap execution. It demonstrates the analysis workflow and must not be represented as actual scan evidence.
 
 ## Scenario
