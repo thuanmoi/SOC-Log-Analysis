@@ -1,5 +1,7 @@
 # Nmap Practice Walkthrough (Illustrative)
 
+> For the author's actual localhost scan observations, see [actual-lab-assessment.md](actual-lab-assessment.md). This walkthrough remains a separate synthetic learning example.
+
 > **Evidence status: illustrative training example — not an actual scan result.**  
 > This report was prepared to demonstrate how to interpret Nmap output. No Nmap command was executed as part of creating this document, so the sample output below must not be presented as evidence of a real scan.
 
