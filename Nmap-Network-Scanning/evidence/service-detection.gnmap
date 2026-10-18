@@ -1,0 +1,4 @@
+# Nmap 7.992 scan initiated Sun Oct 18 09:11:54 2026 as: "C:\\Program Files (x86)\\Nmap\\nmap.exe" -sT -sV --version-light -p 135,137,445,902,912 -oA scans/service-detection 127.0.0.1
+Host: 127.0.0.1 (localhost)	Status: Up
+Host: 127.0.0.1 (localhost)	Ports: 135/open/tcp//msrpc//Microsoft Windows RPC/, 137/filtered/tcp//netbios-ns///, 445/open/tcp//microsoft-ds?///, 902/open/tcp//ssl|vmware-auth//VMware Authentication Daemon 1.10 (Uses VNC, SOAP)/, 912/open/tcp//vmware-auth//VMware Authentication Daemon 1.0 (Uses VNC, SOAP)/
+# Nmap done at Sun Oct 18 09:12:01 2026 -- 1 IP address (1 host up) scanned in 7.84 seconds

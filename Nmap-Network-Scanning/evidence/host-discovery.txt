@@ -1,0 +1,4 @@
+# Nmap 7.992 scan initiated Sun Oct 18 09:07:55 2026 as: "C:\\Program Files (x86)\\Nmap\\nmap.exe" -sn -oN scans/host-discovery.txt 127.0.0.1
+Nmap scan report for localhost (127.0.0.1)
+Host is up.
+# Nmap done at Sun Oct 18 09:07:55 2026 -- 1 IP address (1 host up) scanned in 0.78 seconds

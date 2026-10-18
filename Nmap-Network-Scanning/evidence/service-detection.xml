@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///C:/Program Files (x86)/Nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.992 scan initiated Sun Oct 18 09:11:54 2026 as: &quot;C:\\Program Files (x86)\\Nmap\\nmap.exe&quot; -sT -sV -&#45;version-light -p 135,137,445,902,912 -oA scans/service-detection 127.0.0.1 -->
+<nmaprun scanner="nmap" args="&quot;C:\\Program Files (x86)\\Nmap\\nmap.exe&quot; -sT -sV -&#45;version-light -p 135,137,445,902,912 -oA scans/service-detection 127.0.0.1" start="1792289514" startstr="Sun Oct 18 09:11:54 2026" version="7.992" xmloutputversion="1.05">
+<scaninfo type="connect" protocol="tcp" numservices="5" services="135,137,445,902,912"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1792289515" endtime="1792289521"><status state="up" reason="localhost-response" reason_ttl="0"/>
+<address addr="127.0.0.1" addrtype="ipv4"/>
+<hostnames>
+<hostname name="localhost" type="PTR"/>
+</hostnames>
+<ports><port protocol="tcp" portid="135"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="msrpc" product="Microsoft Windows RPC" ostype="Windows" method="probed" conf="10"><cpe>cpe:/o:microsoft:windows</cpe></service></port>
+<port protocol="tcp" portid="137"><state state="filtered" reason="admin-prohibited" reason_ttl="0"/><service name="netbios-ns" method="table" conf="3"/></port>
+<port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="microsoft-ds" method="table" conf="3"/></port>
+<port protocol="tcp" portid="902"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="vmware-auth" product="VMware Authentication Daemon" version="1.10" extrainfo="Uses VNC, SOAP" tunnel="ssl" method="probed" conf="10"/></port>
+<port protocol="tcp" portid="912"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="vmware-auth" product="VMware Authentication Daemon" version="1.0" extrainfo="Uses VNC, SOAP" method="probed" conf="10"/></port>
+</ports>
+<times srtt="765" rttvar="1988" to="100000"/>
+</host>
+<runstats><finished time="1792289521" timestr="Sun Oct 18 09:12:01 2026" summary="Nmap done at Sun Oct 18 09:12:01 2026; 1 IP address (1 host up) scanned in 7.84 seconds" elapsed="7.84" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

@@ -1,0 +1,12 @@
+# Nmap 7.992 scan initiated Sun Oct 18 09:09:05 2026 as: "C:\\Program Files (x86)\\Nmap\\nmap.exe" -sT -p 1-1000 -oA scans/tcp-baseline 127.0.0.1
+Nmap scan report for localhost (127.0.0.1)
+Host is up (0.00072s latency).
+Not shown: 995 closed tcp ports (conn-refused)
+PORT    STATE    SERVICE
+135/tcp open     msrpc
+137/tcp filtered netbios-ns
+445/tcp open     microsoft-ds
+902/tcp open     iss-realsecure
+912/tcp open     apex-mesh
+
+# Nmap done at Sun Oct 18 09:09:06 2026 -- 1 IP address (1 host up) scanned in 1.17 seconds

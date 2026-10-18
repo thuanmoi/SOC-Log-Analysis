@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///C:/Program Files (x86)/Nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 7.992 scan initiated Sun Oct 18 09:09:05 2026 as: &quot;C:\\Program Files (x86)\\Nmap\\nmap.exe&quot; -sT -p 1-1000 -oA scans/tcp-baseline 127.0.0.1 -->
+<nmaprun scanner="nmap" args="&quot;C:\\Program Files (x86)\\Nmap\\nmap.exe&quot; -sT -p 1-1000 -oA scans/tcp-baseline 127.0.0.1" start="1792289345" startstr="Sun Oct 18 09:09:05 2026" version="7.992" xmloutputversion="1.05">
+<scaninfo type="connect" protocol="tcp" numservices="1000" services="1-1000"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<taskprogress task="Connect Scan" time="1792289346" percent="37.00" remaining="0" etc="1792289346"/>
+<host starttime="1792289346" endtime="1792289346"><status state="up" reason="localhost-response" reason_ttl="0"/>
+<address addr="127.0.0.1" addrtype="ipv4"/>
+<hostnames>
+<hostname name="localhost" type="PTR"/>
+</hostnames>
+<ports><extraports state="closed" count="995">
+<extrareasons reason="conn-refused" count="995" proto="tcp" ports="1-134,136,138-444,446-901,903-911,913-1000"/>
+</extraports>
+<port protocol="tcp" portid="135"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="msrpc" method="table" conf="3"/></port>
+<port protocol="tcp" portid="137"><state state="filtered" reason="admin-prohibited" reason_ttl="0"/><service name="netbios-ns" method="table" conf="3"/></port>
+<port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="microsoft-ds" method="table" conf="3"/></port>
+<port protocol="tcp" portid="902"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="iss-realsecure" method="table" conf="3"/></port>
+<port protocol="tcp" portid="912"><state state="open" reason="syn-ack" reason_ttl="0"/><service name="apex-mesh" method="table" conf="3"/></port>
+</ports>
+<times srtt="724" rttvar="1023" to="100000"/>
+</host>
+<runstats><finished time="1792289346" timestr="Sun Oct 18 09:09:06 2026" summary="Nmap done at Sun Oct 18 09:09:06 2026; 1 IP address (1 host up) scanned in 1.17 seconds" elapsed="1.17" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

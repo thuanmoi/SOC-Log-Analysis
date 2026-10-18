@@ -1,0 +1,4 @@
+# Nmap 7.992 scan initiated Sun Oct 18 09:09:05 2026 as: "C:\\Program Files (x86)\\Nmap\\nmap.exe" -sT -p 1-1000 -oA scans/tcp-baseline 127.0.0.1
+Host: 127.0.0.1 (localhost)	Status: Up
+Host: 127.0.0.1 (localhost)	Ports: 135/open/tcp//msrpc///, 137/filtered/tcp//netbios-ns///, 445/open/tcp//microsoft-ds///, 902/open/tcp//iss-realsecure///, 912/open/tcp//apex-mesh///	Ignored State: closed (995)
+# Nmap done at Sun Oct 18 09:09:06 2026 -- 1 IP address (1 host up) scanned in 1.17 seconds
